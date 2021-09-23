@@ -10,8 +10,8 @@ namespace Chessington.GameEngine.Pieces
 
         public override IEnumerable<Square> GetAvailableMoves(Board board)
         {
-            
-            
+
+            var moves = new List<Square>();
 
             // find current location
             Square currentPosition = board.FindPiece(this);
@@ -21,20 +21,37 @@ namespace Chessington.GameEngine.Pieces
 
             if (Player == Player.White)
             {
+                if(currentPosition.Row == 6)
+                {
+                    newPosition = Square.At(currentPosition.Row - 2, currentPosition.Col);
+                    moves.Add(newPosition);
+                }
+                
                 newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
+                moves.Add(newPosition);
             }
-            else
+
+            else if (Player == Player.Black)
             {
+                if(currentPosition.Row == 1)
+                {
+                    newPosition = Square.At(currentPosition.Row + 2, currentPosition.Col);
+                    moves.Add(newPosition);
+                }
                 newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
+                moves.Add(newPosition);
             }
-
-
             // board.findpiece
+
+
+            //think about how we can make it so that it doesn't think you can moved on the lines
+            //check if the piece has moved
+            //
 
             //put square in list
 
-            var moves = new List<Square>();
-            moves.Add(newPosition);
+   
+            
             return moves;
 
         }

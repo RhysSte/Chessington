@@ -37,11 +37,9 @@ namespace Chessington.GameEngine.Tests.Pieces
         {
             var board = new Board();
             var pawn = new Pawn(Player.White);
-            board.AddPiece(Square.At(7, 5), pawn);
-
+            board.AddPiece(Square.At(6, 5), pawn);
             var moves = pawn.GetAvailableMoves(board);
-
-            moves.Should().Contain(Square.At(5, 5));
+            moves.Should().Contain(Square.At(4, 5));
         }
 
         [Test]
