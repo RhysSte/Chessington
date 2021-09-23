@@ -19,7 +19,7 @@ namespace Chessington.GameEngine.Pieces
          
             for (int i = currentPosition.Row + 1; i < GameSettings.BoardSize; i++)
             {
-                newPosition = Square.At(i, currentPosition.Col); // 5, 5
+                newPosition = Square.At(i, currentPosition.Col); 
                 moves.Add(newPosition);
             }
             for (int i = currentPosition.Row - 1; i >= 0; i--)
