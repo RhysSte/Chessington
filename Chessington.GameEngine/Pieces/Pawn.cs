@@ -21,25 +21,26 @@ namespace Chessington.GameEngine.Pieces
 
             if (Player == Player.White)
             {
-                if(currentPosition.Row == 6)
+                newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
+                moves.Add(newPosition);
+
+                if (currentPosition.Row == 6)
                 {
                     newPosition = Square.At(currentPosition.Row - 2, currentPosition.Col);
                     moves.Add(newPosition);
                 }
-                
-                newPosition = Square.At(currentPosition.Row - 1, currentPosition.Col);
-                moves.Add(newPosition);
             }
 
-            else if (Player == Player.Black)
+            else 
             {
-                if(currentPosition.Row == 1)
+                newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
+                moves.Add(newPosition);
+
+                if (currentPosition.Row == 1)
                 {
                     newPosition = Square.At(currentPosition.Row + 2, currentPosition.Col);
                     moves.Add(newPosition);
                 }
-                newPosition = Square.At(currentPosition.Row + 1, currentPosition.Col);
-                moves.Add(newPosition);
             }
             // board.findpiece
 
